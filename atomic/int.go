@@ -2,7 +2,7 @@ package atomic
 
 import "sync"
 
-// Integer describes a threadsave integer
+// Integer describes a threadsafe integer
 type Integer struct {
 	mutex *sync.Mutex
 	value int
