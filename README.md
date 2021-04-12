@@ -1,4 +1,4 @@
-# DS
+# QU
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/ecnepsnai/qu?style=flat-square)](https://goreportcard.com/report/github.com/ecnepsnai/qu)
 [![Godoc](https://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](https://pkg.go.dev/github.com/ecnepsnai/qu)

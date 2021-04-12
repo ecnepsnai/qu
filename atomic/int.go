@@ -31,7 +31,7 @@ func (i *Integer) IncrementAndGet() int {
 	return i.value
 }
 
-// DecrementAndGet drecrement the current value and return it. May block.
+// DecrementAndGet decrement the current value and return it. May block.
 func (i *Integer) DecrementAndGet() int {
 	i.mutex.Lock()
 	defer i.mutex.Unlock()

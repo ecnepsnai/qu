@@ -1,6 +1,7 @@
 package qu_test
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/ecnepsnai/qu"
@@ -10,6 +11,8 @@ func ExampleQueue_Run() {
 	queue := &qu.Queue{}
 
 	job := func(payload interface{}) {
+		i := payload.(int)
+		fmt.Printf("Job %d\n", i)
 		time.Sleep(1 * time.Millisecond)
 	}
 
