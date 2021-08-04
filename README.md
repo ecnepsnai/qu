@@ -5,9 +5,8 @@
 [![Releases](https://img.shields.io/github/release/ecnepsnai/qu/all.svg?style=flat-square)](https://github.com/ecnepsnai/qu/releases)
 [![LICENSE](https://img.shields.io/github/license/ecnepsnai/qu.svg?style=flat-square)](https://github.com/ecnepsnai/qu/blob/master/LICENSE)
 
-Package qu is a executor service in golang.
-
-You add your jobs to a list, then run them in parallel with a configurable amount of concurrency.
+Package qu is a simple executor service. You add jobs to a queue, then run them concurrently with a configurable
+amount of concurrency.
 
 # Usage
 
@@ -15,12 +14,18 @@ You add your jobs to a list, then run them in parallel with a configurable amoun
 queue := &qu.Queue{}
 
 job := func(payload interface{}) {
-    // do something with your payload
+	i := payload.(int)
+	fmt.Printf("Job %d\n", i)
+	time.Sleep(1 * time.Millisecond)
 }
 
-// Add a job to the queue
-queue.Add(job, "your payload")
+// Add 50 jobs to the queue
+i := 0
+for i < 50 {
+	queue.Add(job, i)
+	i++
+}
 
-// Run through the queue with 2 threads
+// Go through those 50 jobs across 2 threads
 queue.Run(2)
 ```
